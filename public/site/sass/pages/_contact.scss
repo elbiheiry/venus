@@ -1,0 +1,115 @@
+@use "../abstracts/abstracts_all" as *;
+
+/* Contact
+=======================*/
+.contact {
+  padding: 0;
+  &.inner{
+    padding: 70px 0 0;
+  }
+.mt-50{
+  margin-top: 50px;
+}
+  .text {
+    color: $black_color;
+  }
+  .txt_link {
+    font-size: 18px;
+    color: $black_color;
+    letter-spacing: 1px;
+  }
+  .contact_info {
+    margin-bottom: 25px;
+  }
+  .contact_form {
+    padding: 30px 50px;
+    background-color: $black_color;
+    h3 {
+      color: $white_color;
+      text-transform: uppercase;
+      font-weight: $weight_bold;
+      font-size: 18px;
+      line-height: 35px;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+    label {
+      color: $white_color;
+    }
+    .link {
+      margin: 25px 0 0;
+    }
+  }
+  .contact_item {
+    @include flex(row, flex-start, flex-start);
+    margin-top: 35px;
+    i {
+      width: 45px;
+      height: 45px;
+      background-color: #fbdda9;
+      @include border_radius(50%);
+      text-align: center;
+      line-height: 45px;
+      margin-inline-end: 15px;
+    }
+    .cont {
+      span {
+        display: block;
+        font-weight: $weight_bold;
+        font-size: 15px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+      }
+    }
+  }
+  .quick_links {
+    margin-top: 50px;
+    li {
+      display: inlin-block;
+      margin-inline-end: 10px;
+    }
+    .txt_link {
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+  }
+  
+  @include mediaquery(max, desktop) {
+    .row {
+      flex-direction: column-reverse;
+    }
+  }
+  @include mediaquery(max, mobile) {
+    .contact_form {
+      padding: 50px 15px 15px;
+    }
+    .contact_info {
+      padding: 15px;
+      .contact_item {
+        .txt_link {
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: 0;
+        }
+      }
+    }
+  }
+}
+iframe {
+  margin-bottom: -5px;
+}
+.up_btn {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom: -32px;
+  background-color: $main_color;
+  color: $black_color;
+  z-index: 99;
+  border: 5px solid #fff;
+  width: 55px;
+  height: 55px;
+  line-height: 45px;
+}

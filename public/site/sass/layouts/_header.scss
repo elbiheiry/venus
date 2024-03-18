@@ -1,0 +1,245 @@
+@use "../abstracts/abstracts_all" as *;
+
+header {
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  left: 0;
+  width: 100%;
+  z-index: 9998;
+  opacity: 0;
+  top: -100px;
+  @include transition(
+    0.4s background-color linear,
+    0.4s linear top,
+    0.4s linear opacity
+  );
+  &.move {
+    background-color: $black_color;
+  }
+  .col-12 {
+    position: relative;
+  }
+  .logo {
+    margin: 0;
+    padding: 5px 0;
+    height: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    z-index: 999;
+    @include border_radius(50%);
+    img {
+      height: 100%;
+      margin: 0;
+    @include border_radius(50%);
+    }
+  }
+  .btns {
+    position: absolute;
+    right: 15px;
+    margin: auto;
+    top: 30px;
+    height: 40px;
+    z-index: 9998;
+    i {
+      font-style: normal;
+    }
+    .link {
+      margin: 0;
+
+      &:nth-child(1) {
+        background: transparent;
+        border: 2px solid $main_color;
+        color: #fff;
+      }
+    }
+    .menu_btn {
+      display: none;
+      background-color: $white_color;
+      color: $black_color;
+    }
+  }
+  .navbar {
+    min-height: 100px;
+    width: 100%;
+    margin: -100px auto auto;
+    padding: 0;
+    ul {
+      padding-inline-end: 100px;
+      width: 100%;
+      justify-content: end;
+      li {
+        a {
+          position: relative;
+          color: $white_color;
+          font-size: 14px;
+          margin: 0 0 0 25px;
+          letter-spacing: 1px;
+          line-height: 40px;
+          font-weight: $weight_reg;
+          text-transform: uppercase;
+          display: block;
+          padding: 0 0 5px;
+          @include transition(0.3s linear all);
+          span {
+            display: block;
+          }
+          &::before {
+            @include pseudo("", auto, 0);
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            @include border_radius(25px);
+            background: $main_color;
+            @include transition(0.3s width linear);
+          }
+          &.active,
+          &:hover {
+            &::before {
+              width: 100%;
+            }
+          }
+          &.border{
+              border: 1px solid #fff;
+              padding: 0 10px
+             @include border_radius(25px);
+            }
+        }
+        
+        
+      }
+    }
+  }
+  @include mediaquery(max, desktop) {
+    top: 0;
+    background-color: $black_color;
+    .logo {
+      height: 80px;
+    }
+    .btns {
+      top: 20px;
+      .menu_btn {
+        display: inline-block;
+      }
+    }
+    .navbar {
+      background-color: $black_color;
+      margin: 0;
+      z-index: 9999;
+      min-height: auto;
+      position: absolute;
+      top: 80px;
+      border-top: 1px solid rgba($white_color, 0.1);
+      ul {
+        flex-direction: column;
+        padding: 0;
+        li {
+          display: block;
+          a {
+            line-height: 20px;
+            margin: 0 auto;
+            padding: 15px;
+            font-size: 12px;
+            span {
+              display: inline-block;
+            }
+          }
+          &:last-child {
+            a {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include mediaquery(max, mobile) {
+    .btns {
+      .link {
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        border-width: 1px;
+        letter-spacing: 0;
+        i {
+          display: block;
+          width: 100%;
+          height: 100%;
+          line-height: 40px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+.search {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background-color: rgba($black_color, 0.98);
+  z-index: 9999;
+  @include flex(row, center, center);
+  @include transition(0.4s left linear);
+  transition-delay: 0.4s;
+
+  .search_btn {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    @include transition(0.4s top linear);
+    transition-delay: 0s;
+  }
+  form {
+    margin-top: 50px;
+    opacity: 0;
+    max-width: 640px;
+    width: 90%;
+    @include transition(0.4s margin linear, 0.4s opacity linear);
+    transition-delay: 0s;
+    .link {
+      margin: 15px 0 0;
+    }
+  }
+  &.move {
+    left: 0;
+    transition-delay: 0s;
+    .search_btn {
+      top: 25px;
+
+      transition-delay: 0.4s;
+    }
+    form {
+      margin-top: 0;
+      opacity: 1;
+      transition-delay: 0.4s;
+    }
+  }
+}
+html[dir="rtl"] {
+  header {
+    .btns {
+      right: auto;
+      left: 15px;
+    }
+    .navbar {
+      ul {
+        li {
+          a {
+            letter-spacing: 0;
+            &::before {
+              right: 0;
+              left: auto;
+              transform-origin: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}

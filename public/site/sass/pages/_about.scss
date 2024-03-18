@@ -1,0 +1,92 @@
+@use "../abstracts/abstracts_all" as *;
+.certficate {
+  color: #fff;
+  margin: 25px auto 0;
+  h3 {
+    font-weight: $weight_xbold;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+  }
+  p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+}
+.text {
+  color: #fff;
+  h3 {
+    line-height: 28px;
+    font-weight: $weight_bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin: 0 0 15px;
+
+    img {
+      display: inline-block;
+      margin-inline-end: 5px;
+      width: 28px;
+      vertical-align: middle;
+    }
+  }
+  p {
+    font-size: 14px;
+    margin: 0 0 25px;
+    max-width: 90%;
+  }
+}
+.hint {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 40px;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+}
+.gallery_item {
+  display: block;
+  border: 7px solid #fff;
+  @include border_radius(5px);
+  overflow: hidden;
+  &::after {
+    content: "\f0c1";
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    color: $black_color;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 50px;
+    background-color: $main_color;
+    @include border_radius(50%);
+    @include transform(scale(0));
+    @include transition(0.3s linear transform);
+  }
+  img {
+    width: 100%;
+  }
+  &:hover {
+    &::after {
+      @include transform(scale(1));
+    }
+  }
+}
+.media.inner .gallery_item{
+  margin: 0 auto 15px;
+}
+.brands_slider {
+  margin: 25px 0;
+}
+.partners.inner{
+  .brand_img{
+    margin: 15px auto 0;
+  max-width: 180px;
+  }
+}

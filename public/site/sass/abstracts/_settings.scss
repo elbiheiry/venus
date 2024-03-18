@@ -1,0 +1,227 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "placeholders" as *;
+
+/* Setting Style
+======================*/
+*,
+:focus {
+  outline: 0 !important;
+  scroll-behavior: smooth;
+}
+::selection {
+  background-color: $main_color !important;
+  color: #fff !important;
+}
+
+/* Scroll Bar
+======================*/
+/* width */
+::-webkit-scrollbar {
+  background-color: $black_color;
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: $black_color;
+  @include border_radius(25px);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: $main_color;
+  @include border_radius(25px);
+}
+
+body {
+  font-family: $main_font;
+  overflow: hidden;
+  width: 100%;
+  background-color: #fff;
+  font-weight: $weight_reg;
+  text-align: start;
+}
+html[dir="rtl"] {
+  body {
+    letter-spacing: 0 !important;
+    word-spacing: 1px;
+    font-family: $ar_font;
+  }
+}
+/* Loading
+=======================*/
+.preloader {
+  @include flex(column, center, center);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: $black_color;
+  .load_cont {
+    position: relative;
+    img.word {
+      position: relative;
+      width: 210px;
+    }
+    img.icon {
+      margin-bottom: 15px;
+      width: 130px;
+      position: relative;
+      z-index: 999;
+      animation-duration: 3s;
+    }
+  }
+}
+
+/* Cursor
+=========================*/
+.cursor {
+  z-index: 9999;
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: $main_color;
+  @include transform(translate(-50%, -50%));
+  @include border_radius(50%);
+  pointer-events: none;
+  @include transition(0.3s none linear);
+  transition-property: background-color, width, height;
+}
+
+/* Lists  
+======================*/
+ul {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+  }
+}
+
+/* Links 
+======================*/
+a,
+a:hover,
+a:focus {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/*Images
+======================*/
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Page Setting
+=====================*/
+section {
+  position: relative;
+  padding: 70px 0;
+  background-color: #fff;
+  z-index: 99;
+  @include mediaquery(max, tablet) {
+    padding: 35px 0;
+  }
+  &.section_color {
+    background-color: #fff7e9;
+  }
+}
+.section_img {
+  background-color: $black_color;
+  padding: 100px 0;
+  overflow: hidden;
+  &::before {
+    @include pseudo("", 0, 0);
+    background: url(../images/bc.jpg) top center no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 20%;
+  }
+}
+.h-15 {
+  margin-top: 15px;
+}
+.section_title {
+  margin: 0 0 35px;
+  h3 {
+    display: inline-block;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 15px;
+    font-weight: $weight_bold;
+    position: relative;
+    &::before {
+      @include pseudo("", auto, auto);
+      bottom: 10px;
+      height: 10px;
+      width: 100%;
+      background-color: #fbdda9;
+      z-index: -1;
+    }
+  }
+  p {
+    font-size: 18px;
+    margin: 0 0 25px;
+  }
+  @include mediaquery(max, desktop) {
+    margin: 15px 0 35px;
+    h3 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+  }
+  @include mediaquery(max, mobile) {
+    h3 {
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+}
+@include mediaquery(max, desktop) {
+  .flex_mdcol_rev {
+    flex-direction: column-reverse;
+  }
+}
+.page_head {
+  height: auto !important;
+  padding: 140px 0 60px;
+  overflow: hidden;
+  position: relative;
+  h4 {
+    color: #fff;
+    font-weight: $weight_reg;
+    font-size: 32px;
+    letter-spacing: 2px;
+    line-height: 35px;
+    margin: 0 0 25px;
+    text-transform: uppercase;
+  }
+  ul li {
+    letter-spacing: 1px;
+    display: inline-block;
+    color: $main_color;
+    font-size: 16px;
+    a {
+      color: #fff;
+    }
+  }
+}

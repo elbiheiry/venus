@@ -1,0 +1,207 @@
+@use "../abstracts/abstracts_all" as *;
+.header_load {
+  top: 0;
+  opacity: 1;
+  background-color: $black_color;
+}
+
+.brand_slider {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  img {
+    z-index: 98;
+  }
+  .icon_link {
+    z-index: 9998;
+  }
+  &::before {
+    @include pseudo("", 0, 0);
+    background-color: rgba($black_color, 0.75);
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+  }
+  .caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    color: #fff;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 768px;
+    img {
+      margin-bottom: 25px;
+      max-width: 180px;
+      border-radius: 50%;
+    }
+  }
+}
+.search_head {
+  background-color: #fff;
+  margin-bottom: 25px;
+  padding: 7px 0 7px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 13px;
+  @include border_radius(5px);
+  .dropdown-menu {
+    border: 0;
+    z-index: 9999;
+    padding: 0;
+    margin-top: 41px;
+    min-width: 170px;
+    left: auto !important;
+    right: 0 !important;
+    max-width: 170px !important;
+    width: 138px !important;
+    background-color: #ffffff;
+    transform: none !important;
+    overflow: hidden;
+  }
+  button,
+  &:focus {
+    border: 0;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 35px;
+    padding: 0 15px;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    font-weight: 400;
+    margin: 0;
+    &:after {
+      display: none;
+    }
+  }
+  .dropdown-item {
+    padding: 0 15px;
+    line-height: 40px;
+    font-size: 11px;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    position: relative;
+    font-weight: 400;
+    &:hover {
+      color: $main_color;
+    }
+  }
+}
+
+.brand_site.reviola {
+  .owl-carousel button.owl-dot.active,
+  .product_item .cover::after,
+  header .navbar ul li a::before {
+    background-color:#006fb9;
+  }
+  .gallery_item::after,
+  .link,
+  .icon_link {
+    color: #fff;
+    background-color:#006fb9;
+  }
+  footer h3,
+  .product_item .cover::after,
+  .icon::before,
+  .icon i {
+    color: #fff !important;
+  }
+  .section_title h3::before {
+    background-color: rgba(#00373f, 0.2);
+  }
+  section.section_color {
+    background-color: #f4fdff;
+  }
+  .page_head ul li {
+    color: rgb(73 181 197);
+  }
+  .list li::before,
+  .tag {
+    color: #00373f !important;
+  }
+  .contact .contact_item i {
+    background-color: #eaf5f7;
+  }
+}
+.brand_site.master-chif {
+  .owl-carousel button.owl-dot.active,
+  .product_item .cover::after,
+  header .navbar ul li a::before {
+    background-color: #402566;
+  }
+  .gallery_item::after,
+  .link,
+  .icon_link {
+    color: #fff;
+    background-color: #402566;
+  }
+  footer h3,
+  .product_item .cover::after,
+  .icon::before,
+  .icon i {
+    color: #fff !important;
+  }
+  .section_title h3::before {
+    background-color: rgba(#402566, 0.2);
+  }
+  section.section_color {
+    background-color: #f4fdff;
+  }
+  .page_head ul li {
+    color: #fffbf2;
+  }
+  .list li::before,
+  .tag {
+    color: #402566 !important;
+  }
+  .contact .contact_item i {
+    background-color: #eaf5f7;
+  }
+}
+.brand_site.los-pinos {
+  .owl-carousel button.owl-dot.active,
+  .product_item .cover::after,
+  header .navbar ul li a::before {
+    background-color: #a7760e;
+  }
+  .gallery_item::after,
+  .link,
+  .icon_link {
+    color: #fff;
+    background-color: #a7760e;
+  }
+  footer h3,
+  .product_item .cover::after,
+  .icon::before,
+  .icon i {
+    color: #fff !important;
+  }
+  .section_title h3::before {
+    background-color: rgba(#a7760e, 0.2);
+  }
+  section.section_color {
+    background-color: #f4fdff;
+  }
+  .page_head ul li {
+    color: #fffbf2;
+  }
+  .list li::before,
+  .tag {
+    color: #a7760e !important;
+  }
+  .contact .contact_item i {
+    background-color: #eaf5f7;
+  }
+}
